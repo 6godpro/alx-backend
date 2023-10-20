@@ -33,7 +33,7 @@ class Server:
 
         return self.__dataset
 
-    def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
+    def get_page(self, page: int = 1, page_size: int = 10) -> List[List[str]]:
         assert type(page) is int
         assert type(page_size) is int
         assert page > 0
@@ -43,7 +43,7 @@ class Server:
         if not Server.ranges(start, end, len(dataset)):
             return []
         return dataset[start:end]
-    
+
     @staticmethod
     def ranges(start: int, end: int, range: int) -> bool:
         """Checks to see if start and end are within range."""
