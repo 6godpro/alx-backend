@@ -34,6 +34,7 @@ class Server:
         return self.__dataset
 
     def get_page(self, page: int = 1, page_size: int = 10) -> List[List[str]]:
+        """Returns a page."""
         assert type(page) is int
         assert type(page_size) is int
         assert page > 0
