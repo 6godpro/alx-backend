@@ -4,7 +4,6 @@ In this project, I learned about caching algorithms, including LFU, LRU, MRU, FI
 
 ## Tasks :scroll:
 ### [0. Basic dictionary](./0-basic_cache.py)
----
 Create a class `BasicCache` that inherits from `BaseCaching` and is a caching system:
 
 * You must use `self.cache_data` - dictionary from the parent class `BaseCaching`
@@ -17,7 +16,6 @@ Create a class `BasicCache` that inherits from `BaseCaching` and is a caching sy
     * If `key` is `None` or if the `key` doesn’t exist in `self.cache_data`, return `None`.
 
 ### [1. FIFO Caching](./1-fifo_cache.py)
----
 Create a class `FIFOCache` that inherits from `BaseCaching` and is a caching system:
 
 * You must use `self.cache_data` - dictionary from the parent class `BaseCaching`
@@ -33,7 +31,6 @@ Create a class `FIFOCache` that inherits from `BaseCaching` and is a caching sys
     * If `key` is `None` or if the `key` doesn’t exist in `self.cache_data`, return `None`.
 
 ### [2. LIFO Caching](./2-lifo_cache.py)
----
 Create a class `LIFOCache` that inherits from `BaseCaching` and is a caching system:
 
 * You must use `self.cache_data` - dictionary from the parent class `BaseCaching`
@@ -49,7 +46,6 @@ Create a class `LIFOCache` that inherits from `BaseCaching` and is a caching sys
     * If `key` is `None` or if the `key` doesn’t exist in `self.cache_data`, return `None`.
 
 ### [3. LRU Caching](./3-lru_cache.py)
----
 Create a class `LRUCache` that inherits from `BaseCaching` and is a caching system:
 
 * You must use `self.cache_data` - dictionary from the parent class `BaseCaching`
@@ -65,7 +61,6 @@ Create a class `LRUCache` that inherits from `BaseCaching` and is a caching syst
     * If `key` is `None` or if the `key` doesn’t exist in `self.cache_data`, return `None`.
 
 ### [4. MRU Caching](./4-mru_cache.py)
----
 Create a class `MRUCache` that inherits from `BaseCaching` and is a caching system:
 
 * You must use `self.cache_data` - dictionary from the parent class `BaseCaching`
@@ -81,7 +76,6 @@ Create a class `MRUCache` that inherits from `BaseCaching` and is a caching syst
     * If `key` is `None` or if the `key` doesn’t exist in `self.cache_data`, return `None`.
 
 ### [5. LFU Caching](./100-lfu_cache.py)
----
 Create a class `LFUCache` that inherits from `BaseCaching` and is a caching system:
 
 * You must use `self.cache_data` - dictionary from the parent class `BaseCaching`
@@ -96,4 +90,3 @@ Create a class `LFUCache` that inherits from `BaseCaching` and is a caching syst
 * `def get(self, key):`
     * Must return the value in `self.cache_data` linked to `key`.
     * If `key` is `None` or if the `key` doesn’t exist in `self.cache_data`, return `None`.
-
