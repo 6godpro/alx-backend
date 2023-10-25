@@ -10,9 +10,9 @@ class LIFOCache(BaseCaching):  # type: ignore
     """Represents a LIFOCache caching system."""
     def __init__(self):
         """Initializes the caching system."""
+        super().__init__()
         self.count = 0
         self.last_insert = ''
-        super().__init__()
 
     def put(self, key, item):
         """Assigns a value to a key."""

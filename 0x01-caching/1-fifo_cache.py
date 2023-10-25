@@ -10,8 +10,8 @@ class FIFOCache(BaseCaching):  # type: ignore
     """Represents a FIFOCache caching system."""
     def __init__(self):
         """Initializes the caching system."""
-        self.count = 0
         super().__init__()
+        self.count = 0
 
     def put(self, key, item):
         """Assigns a value to a key."""
