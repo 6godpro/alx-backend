@@ -33,7 +33,8 @@ def get_locale() -> str:
             (g.user and g.user.get('locale', None)) or
             request.accept_languages.best_match(app.config["LANGUAGES"])
         )
-        return locale
+        return (str(locale) in app.config['LANGUAGES'] and locale) or \
+            app.config['BABEL_DEFAULT_LOCALE']
     except UnknownLocaleError:
         return app.config['BABEL_DEFAULT_LOCALE']
 
