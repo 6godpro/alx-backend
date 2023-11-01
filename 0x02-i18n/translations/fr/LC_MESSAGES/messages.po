@@ -19,19 +19,19 @@ msgstr ""
 "Generated-By: Babel 2.13.1\n"
 
 #: 6-app.py:47 7-app.py:63 templates/3-index.html:6 templates/4-index.html:6
-#: templates/5-index.html:6
+#: templates/5-index.html:6 templates/6-index.html:6
 msgid "home_title"
 msgstr "Bienvenue chez Holberton"
 
 #: 6-app.py:48 7-app.py:64 templates/3-index.html:9 templates/4-index.html:9
-#: templates/5-index.html:9
+#: templates/5-index.html:9 templates/6-index.html:9
 msgid "home_header"
 msgstr "Bonjour monde!"
 
-#: 6-app.py:50 7-app.py:66 templates/5-index.html:13
+#: 6-app.py:50 7-app.py:66 templates/5-index.html:13 templates/6-index.html:13
 msgid "not_logged_in"
 msgstr "Vous n'êtes pas connecté."
 
-#: templates/5-index.html:11
+#: templates/5-index.html:11 templates/6-index.html:11
 msgid "logged_in_as %(username)"
 msgstr "Vous êtes connecté en tant que %(username)s."

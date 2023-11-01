@@ -1,10 +1,8 @@
 #!/usr/bin/env python3
 """A basic Flask app."""
+from typing import Dict, Union
 from flask import Flask, g, render_template, request
-from flask_babel import Babel, _
-
-app = Flask(__name__)
-babel = Babel(app)
+from flask_babel import Babel
 
 users = {
     1: {"name": "Balou", "locale": "fr", "timezone": "Europe/Paris"},
@@ -21,6 +19,8 @@ class Config:
     BABEL_DEFAULT_TIMEZONE = "UTC"
 
 
+app = Flask(__name__)
+babel = Babel(app)
 app.config.from_object(Config)
 
 
@@ -36,27 +36,20 @@ def get_locale() -> str:
 
 
 @app.route('/')
-def home():
+def home() -> str:
     """Returns a simple template."""
     user_logged_in = False
     username = ''
     if g.user:
         user_logged_in = True
         username = g.user['name']
-    home_title = _('home_title')
-    home_header = _('home_header')
-    logged_in_as = _('logged_in_as', username=username)
-    not_logged_in = _('not_logged_in')
     return render_template('6-index.html',
-                           home_title=home_title,
-                           home_header=home_header,
                            user_logged_in=user_logged_in,
-                           logged_in_as=logged_in_as,
-                           not_logged_in=not_logged_in
+                           username=username
                            )
 
 
-def get_user(id: str):
+def get_user(id: str | None) -> Union[Dict, None]:
     """Returns a user if the id exists else None."""
     try:
         user = users.get(int(id), None)
@@ -66,7 +59,7 @@ def get_user(id: str):
 
 
 @app.before_request
-def before_request():
+def before_request() -> None:
     """Sets up routes."""
     user_id = request.args.get('login_as', None)
     user = get_user(user_id)
