@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """A basic Flask app."""
 from flask import Flask, render_template, request
-from flask_babel import Babel, _
+from flask_babel import Babel
 import flask
 
 app = Flask(__name__)
@@ -42,16 +42,9 @@ def home():
     if flask.g.user:
         user_logged_in = True
         username = flask.g.user['name']
-    home_title = _('home_title')
-    home_header = _('home_header')
-    logged_in_as = _('logged_in_as', username=username)
-    not_logged_in = _('not_logged_in')
     return render_template('5-index.html',
-                           home_title=home_title,
-                           home_header=home_header,
                            user_logged_in=user_logged_in,
-                           logged_in_as=logged_in_as,
-                           not_logged_in=not_logged_in
+                           username=username
                            )
 
 
