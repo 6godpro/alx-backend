@@ -1,10 +1,7 @@
 #!/usr/bin/env python3
 """A basic Flask app."""
 from flask import Flask, render_template, request
-from flask_babel import Babel, _
-
-app = Flask(__name__)
-babel = Babel(app)
+from flask_babel import Babel
 
 
 class Config:
@@ -14,6 +11,8 @@ class Config:
     BABEL_DEFAULT_TIMEZONE = "UTC"
 
 
+app = Flask(__name__)
+babel = Babel(app)
 app.config.from_object(Config)
 
 
@@ -29,12 +28,7 @@ def get_locale() -> str:
 @app.route('/')
 def home():
     """Returns a simple template."""
-    home_title = _('home_title')
-    home_header = _('home_header')
-    return render_template('4-index.html',
-                           home_title=home_title,
-                           home_header=home_header
-                           )
+    return render_template('4-index.html')
 
 
 if __name__ == "__main__":
