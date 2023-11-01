@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 """A basic Flask app."""
-from typing import Dict, Union
 from flask import Flask, g, render_template, request
 from flask_babel import Babel
 
@@ -49,7 +48,7 @@ def home() -> str:
                            )
 
 
-def get_user(id: str | None) -> Union[Dict, None]:
+def get_user(id):
     """Returns a user if the id exists else None."""
     try:
         user = users.get(int(id), None)
