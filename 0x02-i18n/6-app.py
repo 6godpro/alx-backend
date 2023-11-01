@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """A basic Flask app."""
 from flask import Flask, g, render_template, request
-from flask_babel import Babel
+from flask_babel import Babel, Locale
+from babel.core import UnknownLocaleError
 
 users = {
     1: {"name": "Balou", "locale": "fr", "timezone": "Europe/Paris"},
@@ -26,12 +27,15 @@ app.config.from_object(Config)
 @babel.localeselector
 def get_locale() -> str:
     """Determines the best match for language."""
-    return (
-        request.args.get('locale', None) or
-        (g.user and g.user.get('locale', None)) or
-        request.accept_languages.best_match(app.config["LANGUAGES"]) or
-        "en"
-    )
+    try:
+        locale = Locale.parse(
+            request.args.get('locale', None) or
+            (g.user and g.user.get('locale', None)) or
+            request.accept_languages.best_match(app.config["LANGUAGES"])
+        )
+        return locale
+    except UnknownLocaleError:
+        return app.config['BABEL_DEFAULT_LOCALE']
 
 
 @app.route('/')
